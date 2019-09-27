@@ -33,7 +33,7 @@ class Header extends Component {
             <Link to={this.props.auth ? "/calendar" : "/"}>
                <div className="flex items-center flex-shrink-0 text-white mr-6">
                   <svg
-                     class="fill-current h-8 w-8 mr-2"
+                     className="fill-current h-8 w-8 mr-2"
                      width="54"
                      height="54"
                      viewBox="0 0 54 54"

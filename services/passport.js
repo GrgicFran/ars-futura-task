@@ -6,7 +6,7 @@ const keys = require("../config/keys");
 const User = mongoose.model("users");
 
 passport.serializeUser((user, done) => {
-   done(null, user.id);
+   done(null, user.profile.id);
 });
 
 passport.deserializeUser((id, done) => {
@@ -26,10 +26,10 @@ passport.use(
       async (accessToken, refreshToken, profile, done) => {
          const existingUser = await User.findOne({ googleId: profile.id });
          if (existingUser) {
-            return done(null, existingUser);
+            return done(null, { profile: existingUser, token: accessToken });
          }
          const user = await new User({ googleId: profile.id }).save();
-         done(null, user);
+         done(null, { profile: user, token: accessToken });
       }
    )
 );

@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const keys = require("./config/keys");
 const cookieSession = require("cookie-session");
+// const cookieParser = require("cookie-parser");
 const passport = require("passport");
 require("./models/User");
 require("./services/passport");
@@ -16,11 +17,13 @@ app.use(
       keys: [keys.cookieKey]
    })
 );
+// app.use(cookieParser);
 
 app.use(passport.initialize());
 app.use(passport.session());
 
 require("./routes/authRoutes")(app);
+require("./routes/calendarRoutes")(app);
 
 if (process.env.NODE_ENV === "production") {
    // make sure that express will serve production assets
@@ -32,8 +35,6 @@ if (process.env.NODE_ENV === "production") {
       res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
    });
 }
-
-app.get("/", (req, res) => res.send("Hello World!"));
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);
