@@ -7,7 +7,7 @@ import * as actions from "../actions";
 import Header from "./Header";
 import Landing from "./Landing";
 import Calendar from "./Calendar";
-const NewEvent = () => <h2>New Event</h2>;
+import NewEvent from "./cal/NewEvent";
 // const Landing = () => <h2>Landing</h2>;
 
 class App extends Component {

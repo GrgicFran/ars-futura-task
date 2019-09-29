@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchDay } from "../../actions";
-import eventIcon from "../../resources/event.png";
+// import eventIcon from "../../resources/event.png";
+import Event from "./Event";
 import moment from "moment";
 
 class DayEvents extends Component {
@@ -10,23 +11,15 @@ class DayEvents extends Component {
    }
 
    renderEvents(events) {
+      let firstTime = true;
       return this.props.events.items.reverse().map(event => {
          return (
             <div key={event.id} className="m-4">
-               <div className="max-w-xl mx-auto flex p-6 bg-white rounded-lg shadow-xl">
-                  <div className="flex-shrink-0 w-10">
-                     <img src={eventIcon} alt="ChitChat Logo" />
-                  </div>
-                  <div className="ml-6 pt-1">
-                     <h4 className="text-xl text-gray-900 leading-tight">
-                        {event.summary}
-                     </h4>
-                     <p className="text-base text-gray-700 leading-normal">
-                        {moment(event.start.dateTime).format("HH:mm")} -{" "}
-                        {moment(event.end.dateTime).format("HH:mm")}
-                     </p>
-                  </div>
-               </div>
+               {firstTime && (
+                  <h1>{moment(event.start.dateTime).format("DD.MM.")}</h1>
+               )}
+               {(firstTime = false)}
+               <Event event={event}></Event>
             </div>
          );
       });

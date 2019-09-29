@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Day from "./cal/DayEvents";
 import Week from "./cal/WeekEvents";
 import Month from "./cal/MonthEvents";
+import { Link } from "react-router-dom";
 
 class Calendar extends Component {
    constructor() {
@@ -36,6 +37,7 @@ class Calendar extends Component {
    render() {
       return (
          <div>
+            <Link to="/calendar/new">New</Link>
             <button onClick={this.toggleDay.bind(this)}>Day</button>
             <button onClick={this.toggleWeek.bind(this)}>Week</button>
             <button onClick={this.toggleMonth.bind(this)}>Month</button>
