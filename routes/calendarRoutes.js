@@ -35,6 +35,8 @@ module.exports = app => {
                params: {
                   key: keys.apiKey,
                   access_token: req.session.token,
+                  orderBy: "startTime",
+                  singleEvents: true,
                   timeMin: date.toISOString(),
                   timeMax: new Date(
                      date.setMonth(date.getMonth() + 1)
@@ -58,6 +60,8 @@ module.exports = app => {
                params: {
                   key: keys.apiKey,
                   access_token: req.session.token,
+                  orderBy: "startTime",
+                  singleEvents: true,
                   timeMin: date.toISOString(),
                   timeMax: new Date(
                      date.setDate(date.getDate() + 7)

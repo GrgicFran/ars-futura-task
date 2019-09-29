@@ -6,7 +6,7 @@ import * as actions from "../actions";
 
 import Header from "./Header";
 import Landing from "./Landing";
-const Calendar = () => <h2>Calendar</h2>;
+import Calendar from "./Calendar";
 const NewEvent = () => <h2>New Event</h2>;
 // const Landing = () => <h2>Landing</h2>;
 
