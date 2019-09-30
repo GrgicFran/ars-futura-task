@@ -42,7 +42,7 @@ class MonthEvents extends Component {
 
       return (
          <div className="flex flex-wrap">
-            <div className="container mx-auto px-6 py-20">
+            <div className="container mx-auto px-6 py-5">
                <div className="oject-center">{this.renderEvents()}</div>
             </div>
             <div>{console.log(this.props.events)}</div>
