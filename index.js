@@ -2,7 +2,6 @@ const express = require("express");
 const mongoose = require("mongoose");
 const keys = require("./config/keys");
 const cookieSession = require("cookie-session");
-// const cookieParser = require("cookie-parser");
 const passport = require("passport");
 require("./models/User");
 require("./services/passport");
@@ -17,7 +16,6 @@ app.use(
       keys: [keys.cookieKey]
    })
 );
-// app.use(cookieParser);
 
 app.use(passport.initialize());
 app.use(passport.session());
